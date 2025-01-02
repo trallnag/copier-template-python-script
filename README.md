@@ -15,5 +15,5 @@ No point in contributing. Made for my (trallnag) personal use only.
 ## Licensing
 
 This work is licensed under the
-[ISC License](https://en.wikipedia.org/wiki/ISC_license). See
+[ISC license](https://en.wikipedia.org/wiki/ISC_license). See
 [`LICENSE`](LICENSE) for the license text.
