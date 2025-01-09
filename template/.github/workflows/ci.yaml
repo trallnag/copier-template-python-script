@@ -15,6 +15,10 @@ on:
     # At 04:04 on Monday.
     - cron: 4 4 * * 1
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 defaults:
   run:
     shell: bash
