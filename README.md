@@ -10,6 +10,23 @@ Repositories based on this template:
 - [trallnag/exec-cmds-defer-errors](https://github.com/trallnag/exec-cmds-defer-errors)
 - [trallnag/filter-pre-commit-hooks](https://github.com/trallnag/filter-pre-commit-hooks)
 
+## Repository requirements
+
+All GitHub repositories based on this template must meet the following
+requirements.
+
+Feature "Wikis" disabled.
+
+Feature "Discussions" enabled.
+
+Feature "Projects" disabled.
+
+For pull requests the following must be enabled:
+
+- "Always suggest updating pull request branches"
+- "Automatically delete head branches"
+- "Allow auto-merge"
+
 ## Project status
 
 The project is maintained by me, [trallnag](https://github.com/trallnag), and I
