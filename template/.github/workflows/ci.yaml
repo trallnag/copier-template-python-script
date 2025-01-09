@@ -9,7 +9,8 @@ on:
   pull_request:
   merge_group:
   push:
-    branches: [master, dev]
+    branches:
+      - "*"
   schedule:
     # At 04:04 on Monday.
     - cron: 4 4 * * 1
