@@ -21,7 +21,7 @@
   },
 
   "postCreateCommand": {
-    "fixVolumeVenv": "sudo chown -R vscode:vscode /workspaces/exec-cmds-defer-errors/.venv",
+    "fixVolumeVenv": "sudo chown -R vscode:vscode /workspaces/{{ project_name }}/.venv",
     "fixVolumePreCommitCache": "sudo chown -R vscode:vscode /home/vscode/.cache/pre-commit",
     "fixVolumeUvCache": "sudo chown -R vscode:vscode /home/vscode/.cache/uv"
   },
