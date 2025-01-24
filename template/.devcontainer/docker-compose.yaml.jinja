@@ -1,0 +1,22 @@
+services:
+  vscode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # Hardlinking (which is the default on Linux) not possible
+      # as uv cache lives on a different drive in this configuration.
+      UV_LINK_MODE: symlink
+    volumes:
+      - ..:/workspaces/{{ project_name }}:cached
+      # Dedicated volume for the virtual environment.
+      - venv:/workspaces/{{ project_name }}/.venv
+      # Cache volume for pre-commit.
+      - pre-commit-cache:/home/vscode/.cache/pre-commit
+      # Cache volume for uv.
+      - uv-cache:/home/vscode/.cache/uv
+    command: sleep infinity
+volumes:
+  venv:
+  pre-commit-cache:
+  uv-cache:
