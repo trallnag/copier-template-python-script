@@ -33,13 +33,10 @@ EOT
 RUN <<-EOT
 	set -eux
 
-  curl \
-    --location --silent --show-error --fail \
-    --output /tmp/taskfile-installer.sh \
-    https://taskfile.dev/install.sh
-
   mkdir -p ~/.local/bin
-  sh /tmp/taskfile-installer.sh -d -b ~/.local/bin
+  curl --location --silent --show-error --fail \
+    https://taskfile.dev/install.sh |
+    sh -s -- -d -b ~/.local/bin
 
   mkdir -p ~/.local/share/bash-completion/completions
   ~/.local/bin/task --completion bash \
