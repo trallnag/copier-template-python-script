@@ -21,6 +21,8 @@ EOT
 RUN <<-EOT
 	set -eux
 
+  pipx --version
+
 	pipx install \
     copier \
     pre-commit \
