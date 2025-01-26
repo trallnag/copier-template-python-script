@@ -13,7 +13,8 @@ RUN <<-EOT
   sudo apt-get install --yes --no-install-recommends \
     curl \
     dnsutils \
-    gnupg2
+    gnupg2 \
+    pipx
 EOT
 
 # Install additional packages with pipx.
