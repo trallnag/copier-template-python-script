@@ -10,7 +10,7 @@ dotenv:
 
 tasks:
   default:
-    desc: Init, format, lint, and lint.
+    desc: Init, format, lint, and test.
     cmds:
       - task: init
       - task: format
