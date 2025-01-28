@@ -39,7 +39,7 @@ RUN <<-EOT
 
   curl --location --silent --show-error --fail \
     https://taskfile.dev/install.sh \
-  | sh -s -- -b ~/.local/bin
+    | sh -s -- -b ~/.local/bin
 
   ~/.local/bin/task --version
 
