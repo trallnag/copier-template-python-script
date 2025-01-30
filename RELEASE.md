@@ -5,7 +5,7 @@ This document describes the release process and is targeted at maintainers.
 Check the existing tags:
 
 ```sh
-git tag
+git tag --list --sort=taggerdate 'v*' | tail --lines=5
 ```
 
 Pick the next version:
@@ -14,7 +14,7 @@ Pick the next version:
 VERSION=8
 ```
 
-Create the new tag:
+Create the new tag:q
 
 ```sh
 git tag -s v$VERSION -m ""
