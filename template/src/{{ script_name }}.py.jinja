@@ -1,7 +1,4 @@
-#
-# /// script
-# requires-python = ">=3.10"
-# ///
+#!/usr/bin/env -S uv run --script
 #
 # This work is available under the ISC license.
 #
@@ -19,25 +16,60 @@
 # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 # PERFORMANCE OF THIS SOFTWARE.
 #
+# /// script
+#
+# requires-python = ">= 3.12"
+#
+# dependencies = [
+#   "click == 8.1.8",
+# ]
+#
+# ///
+#
 
-from argparse import ArgumentParser
+from typing import override
+
+import click
 
 VERSION = "0.1.0"
 
-parser = ArgumentParser(
-    description="",
-    epilog=(
-        "For more information, check out "
-        "<https://github.com/trallnag/{{ repo_name }}>."
-    ),
-)
+HELP = """
+This is the free-form part of help text.
+"""
 
-parser.add_argument(
-    "-v",
-    "--version",
-    action="version",
-    version=f"%(prog)s {VERSION}",
+EPILOG = """
+\b
+For more information, check out
+<https://github.com/trallnag/{{ repo_name }}>.
+"""
+
+
+class Command(click.Command):
+    """Custom command. Only used to customize the epilog formatting."""
+
+    @override
+    def format_epilog(self, ctx: click.Context, formatter: click.HelpFormatter) -> None:
+        """Format the epilog. Just like the original, but without indentation."""
+
+        if self.epilog:
+            formatter.write_paragraph()
+            formatter.write_text(self.epilog)
+
+
+@click.command(
+    cls=Command,
+    context_settings={
+        "help_option_names": ["-h", "--help"],
+        "show_default": True,
+    },
+    help=HELP,
+    epilog=EPILOG,
 )
+def {{ script_name }}() -> None:
+    """Command."""
+
+    pass
+
 
 if __name__ == "__main__":
-    args = parser.parse_args()
+    {{ script_name }}()

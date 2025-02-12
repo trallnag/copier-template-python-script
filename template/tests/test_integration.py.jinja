@@ -1,0 +1,30 @@
+"""
+Integration tests for the `{{ script_name }}` module.
+"""
+
+import click
+from click.testing import CliRunner
+
+from src.{{ script_name }} import Command, {{ script_name }}
+
+
+def test_cli_help() -> None:
+    """Test the CLI help message."""
+
+    result = CliRunner().invoke({{ script_name }}, ["--help"])
+
+    assert result.exit_code == 0
+
+
+def test_command() -> None:
+    """
+    Test that the custom command handles missing epilog.
+    """
+
+    @click.command(
+        cls=Command,
+    )
+    def command() -> None:
+        pass
+
+    CliRunner().invoke(command, ["--help"])
