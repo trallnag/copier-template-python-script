@@ -14,10 +14,10 @@ Pick the next version:
 VERSION=8
 ```
 
-Create the new tag:q
+Create the new tag:
 
 ```sh
-git tag -s v$VERSION -m ""
+git tag --sign --message="" v$VERSION
 ```
 
 Make sure that the tree looks good:
