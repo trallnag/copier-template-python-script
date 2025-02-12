@@ -19,7 +19,7 @@ stripped_script=$(sed '21,26d' src/{{ script_name }}.py)
 
 # Insert new metadata into script.
 {
-  echo "$stripped_script" | head -n 20
+  echo "$stripped_script" | head --lines=20
   echo "$metadata"
-  echo "$stripped_script" | tail -n +21
+  echo "$stripped_script" | tail --lines=+21
 } > src/{{ script_name }}.py
