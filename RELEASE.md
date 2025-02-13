@@ -37,7 +37,9 @@ Done. In repositories that use this template, update to the new version using
 for example the following command:
 
 ```sh
+rm -rf .git/hooks
 copier update --defaults
+just init
 ```
 
 For more information, check the
