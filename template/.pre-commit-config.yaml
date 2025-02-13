@@ -75,9 +75,9 @@ repos:
       - id: sync-script-metadata
         alias: sync-script-metadata (fix, task)
         name: Sync script metadata
-        language: script
+        language: system
         pass_filenames: false
-        entry: scripts/sync-script-metadata.bash
+        entry: just sync-script-metadata
         files: ^pyproject\.toml$
 
       - id: yamlfmt
