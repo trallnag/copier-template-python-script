@@ -1,5 +1,7 @@
 _subdirectory: template
 
+_answers_file: .copier-answers.yaml
+
 project_name:
   type: str
   help: What is the project name?
