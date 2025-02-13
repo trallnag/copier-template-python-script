@@ -48,7 +48,5 @@
   "postCreateCommand": {
     "fixVolumeVenv": "sudo chown -R vscode:vscode .venv",
     "fixVolumeCache": "sudo chown -R vscode:vscode .cache"
-  },
-
-  "postStartCommand": "task init"
+  }
 }
