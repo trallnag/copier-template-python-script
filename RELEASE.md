@@ -38,7 +38,9 @@ for example the following command:
 
 ```sh
 rm -rf .git/hooks
-copier update --defaults
+copier update --answers-file=.copier-answers.yaml --defaults
+# Do whatever is needed to align with the new version.
+# Finally, initialize the repository again.
 just init
 ```
 
