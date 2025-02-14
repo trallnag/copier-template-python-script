@@ -23,9 +23,15 @@ Feature "Projects" disabled.
 
 For pull requests the following must be enabled:
 
-- "Always suggest updating pull request branches"
-- "Automatically delete head branches"
-- "Allow auto-merge"
+- Always suggest updating pull request branches.
+- Automatically delete head branches.
+- Allow auto-merge.
+
+Ruleset "Master":
+
+- Target default branch.
+- Restrict deletions.
+- Block force pushes.
 
 ## Project status
 
