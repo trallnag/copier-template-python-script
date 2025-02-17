@@ -72,13 +72,13 @@ jobs:
             shfmt latest
             yamlfmt latest
 
-      - name: Run recipe init
+      - name: Just init
         run: just init
 
-      - name: Run recipe fix
+      - name: Just fix
         run: just fix
 
-      - name: Run recipe check
+      - name: Just check
         run: just check
 
       - name: Remove mise file
@@ -144,7 +144,7 @@ jobs:
         with:
           python-version: ${{ steps.python-version.outputs.value }}
 
-      - name: Run recipe test
+      - name: Just test
         run: just test
 
   keep-enabled:
