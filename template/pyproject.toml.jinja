@@ -2,13 +2,37 @@
 
 name = "{{ project_name }}"
 
+description = ""
+
+authors = [
+  {name = "Tim Schwenke", email = "tim@trallnag.com"},
+]
+
 version = "0.1.0"
+
+license = "ISC"
+
+license-files = ["LICENSE"]
 
 requires-python = ">= 3.12"
 
 dependencies = [
   "click == 8.1.8",
 ]
+
+readme = "README.md"
+
+[project.urls]
+
+Homepage = "https://github.com/trallnag/{{ repo_name }}"
+Documentation = "https://github.com/trallnag/{{ repo_name }}"
+Repository = "https://github.com/trallnag/{{ repo_name }}.git"
+Issues = "https://github.com/trallnag/{{ repo_name }}/issues"
+Changelog = "https://github.com/trallnag/{{ repo_name }}/blob/master/CHANGELOG.md"
+
+[project.scripts]
+
+{{ project_name }} = "src.{{ script_name }}:{{ script_name }}"
 
 [dependency-groups]
 
@@ -50,7 +74,7 @@ ignore = [
   "COM812",  # Redundant rule. Ruff recommends disabling it.
   "D100",    # Missing docstring in public module is fine.
   "D104",    # Missing docstring in public package is fine.
-  "D200",    # One-line docstring on seperate line is fine.
+  "D200",    # One-line docstring on separate line is fine.
   "D202",    # Blank line after docstring is preferred.
   "D203",    # Blank line before docstring not required.
   "D205",    # Blank line between summary and desc not required.

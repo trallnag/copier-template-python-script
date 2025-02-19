@@ -36,9 +36,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up just
-        uses: extractions/setup-just@v2
-
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
 
@@ -72,13 +69,13 @@ jobs:
             shfmt latest
             yamlfmt latest
 
-      - name: Just init
+      - name: Run recipe init
         run: just init
 
-      - name: Just fix
+      - name: Run recipe fix
         run: just fix
 
-      - name: Just check
+      - name: Run recipe check
         run: just check
 
       - name: Remove mise file
@@ -144,7 +141,7 @@ jobs:
         with:
           python-version: ${{ steps.python-version.outputs.value }}
 
-      - name: Just test
+      - name: Run recipe test
         run: just test
 
   keep-enabled:

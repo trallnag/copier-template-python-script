@@ -74,13 +74,15 @@ Push the tag itself:
 git push origin v$VERSION
 ```
 
-This triggers the release workflow which will build binaries, build and push
-container images, and draft a GitHub release. Monitor the
-[release workflow run](https://github.com/trallnag/{{ repo_name }}/actions/workflows/release.yaml).
+This triggers the release workflow which will build package distributions,
+publish them to PyPI, and draft a GitHub release. Monitor the
+[release workflow](https://github.com/trallnag/{{ repo_name }}/actions/workflows/release.yaml)
+run and check the
+[project on PyPI](https://pypi.org/project/{{ project_name }}/).
 
 ## Wrap up
 
-Go to the release page of this project on GitHub
+If everything is fine, go to the release page of this project on GitHub
 [here](https://github.com/trallnag/{{ repo_name }}/releases) and review
 the automatically created release draft.
 
