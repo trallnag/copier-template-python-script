@@ -33,6 +33,16 @@ Ruleset "Master":
 - Restrict deletions.
 - Block force pushes.
 
+Environment "PyPI" with tag pattern `v*.*.*`.
+
+## PyPI setup
+
+Add a new pending publisher [here](https://pypi.org/manage/account/publishing/).
+
+The workflow name is "release.yaml".
+
+The environment name is "PyPI".
+
 ## Project status
 
 The project is maintained by me, [trallnag](https://github.com/trallnag), and I
