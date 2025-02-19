@@ -45,12 +45,14 @@ The environment name is "PyPI".
 
 ## Project status
 
-The project is maintained by me, [trallnag](https://github.com/trallnag), and I
-am interested in keeping it alive as I am actively using it.
+The project is maintained by me, [Tim](https://github.com/trallnag), and I am
+interested in keeping it alive as I am actively using it.
+
+I'm also using the project to test out various tools and workflows.
 
 ## Contributing
 
-No point in contributing. Made for my (trallnag) personal use only.
+No point in contributing. Made for my (Tim) personal use only.
 
 ## Licensing
 
