@@ -40,6 +40,8 @@ HELP = """
 The program is available as the script "{{ script_name }}.py"
 and as the package "{{ project_name }}" on PyPI.
 
+[...]
+
 The program itself is executed with "uv run", a subcommand of uv, which is a
 package manager for Python. This is because the script contains inline script
 metadata specifying required dependencies. The script also contains a shebang,
@@ -52,7 +54,7 @@ Using the package from PyPI, the equivalent command looks like this:
 
 EPILOG = """
 \b
-Project homepage: <https://github.com/trallnag/{{ repo_name }}>.
+Project homepage: <https://github.com/trallnag/{{ project_name }}>.
 """
 
 

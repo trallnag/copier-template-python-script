@@ -24,17 +24,17 @@ readme = "README.md"
 
 [project.urls]
 
-Homepage = "https://github.com/trallnag/{{ repo_name }}"
-Documentation = "https://github.com/trallnag/{{ repo_name }}"
-Repository = "https://github.com/trallnag/{{ repo_name }}.git"
-Issues = "https://github.com/trallnag/{{ repo_name }}/issues"
-Changelog = "https://github.com/trallnag/{{ repo_name }}/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/trallnag/{{ project_name }}"
+Documentation = "https://github.com/trallnag/{{ project_name }}"
+Repository = "https://github.com/trallnag/{{ project_name }}.git"
+Issues = "https://github.com/trallnag/{{ project_name }}/issues"
+Changelog = "https://github.com/trallnag/{{ project_name }}/blob/master/CHANGELOG.md"
 
 [project.scripts]
 
 # Note that before building package distributions, the prefix "_" must be
 # removed. It is here to avoid conflicts with globally installed packages.
-_{{ project_name }} = "{{ script_name }}:{{ script_name }}:{{ script_name }}"
+_{{ project_name }} = "{{ script_name }}.{{ script_name }}:{{ script_name }}"
 
 [dependency-groups]
 
@@ -59,10 +59,7 @@ package = true
 
 cache-dir = ".cache/ruff"
 
-exclude = [
-  "scripts/filter_pre_commit_hooks.py",
-  "scripts/exec_cmds_defer_errors.py",
-]
+exclude = []
 
 [tool.ruff.lint]
 
