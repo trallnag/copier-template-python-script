@@ -32,7 +32,9 @@ Changelog = "https://github.com/trallnag/{{ repo_name }}/blob/master/CHANGELOG.m
 
 [project.scripts]
 
-{{ project_name }} = "src.{{ script_name }}:{{ script_name }}"
+# Note that before building package distributions, the prefix "_" must be
+# removed. It is here to avoid conflicts with globally installed packages.
+_{{ project_name }} = "{{ script_name }}:{{ script_name }}:{{ script_name }}"
 
 [dependency-groups]
 
@@ -41,6 +43,7 @@ dev = [
   "pytest-cov >= 6.0.0",
   "pytest >= 8.3.4",
   "ruff >= 0.8.4",
+  "types-pyyaml >= 6.0.12.20241230",
 ]
 
 [build-system]
@@ -51,10 +54,6 @@ build-backend = "hatchling.build"
 [tool.uv]
 
 package = true
-
-[tool.hatch.build.targets.wheel]
-
-only-include = ["src"]
 
 [tool.ruff]
 
@@ -104,10 +103,6 @@ warn_unused_ignores = true
 [tool.pytest]
 
 cache_dir = ".cache/pytest"
-
-[tool.pytest.ini_options]
-
-pythonpath = ["src"]
 
 [tool.coverage.run]
 
