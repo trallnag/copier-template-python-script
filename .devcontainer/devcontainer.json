@@ -13,10 +13,7 @@
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
           "zsh": { "path": "/usr/bin/zsh" }
-        },
-        "python.testing.pytestArgs": ["tests"],
-        "python.testing.unittestEnabled": false,
-        "python.testing.pytestEnabled": true
+        }
       },
 
       "extensions": [
@@ -28,26 +25,16 @@
         "Gruntfuggly.todo-tree",
         "Tyriar.sort-lines",
         "VisualStudioExptTeam.vscodeintellicode",
-        "charliermarsh.ruff",
         "donjayamanne.githistory",
         "github.vscode-github-actions",
         "mhutchie.git-graph",
-        "mkhl.shfmt",
-        "ms-python.mypy-type-checker",
-        "ms-python.python",
         "nefrob.vscode-just-syntax",
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
-        "timonwong.shellcheck",
         "tomoki1207.selectline-statusbar",
         "waderyan.gitblame",
         "yzhang.markdown-all-in-one"
       ]
     }
-  },
-
-  "postCreateCommand": {
-    "fixVolumeVenv": "sudo chown -R vscode:vscode .venv",
-    "fixVolumeCache": "sudo chown -R vscode:vscode .cache"
   }
 }

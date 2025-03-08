@@ -3,22 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
-    environment:
-      # Hardlinking (which is the default on Linux) not possible
-      # as uv cache lives on a different drive in this configuration.
-      UV_LINK_MODE: symlink
-
     command: sleep infinity
 
     volumes:
       # Workspace itself.
       - ..:/workspaces/copier-template-python-script:cached
-      # Virtual environment.
-      - venv:/workspaces/copier-template-python-script/.venv
-      # Workspace cache.
-      - cache:/workspaces/copier-template-python-script/.cache
-
-volumes:
-  venv: # Virtual environment.
-  cache: # Workspace cache.
