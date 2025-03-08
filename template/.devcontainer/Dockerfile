@@ -48,8 +48,8 @@ RUN <<-EOT
 
   > /tmp/zshrc
   echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /tmp/zshrc
-  echo 'FPATH=/home/linuxbrew/.linuxbrew/share/zsh-completions:$FPATH' >> /tmp/zshrc
   echo 'if [ -z "$LC_ALL" ]; then export LC_ALL=en_US.utf8; fi' >> /tmp/zshrc
+  echo 'FPATH=/home/linuxbrew/.linuxbrew/share/zsh-completions:$FPATH' >> /tmp/zshrc
   cat ~/.zshrc >> /tmp/zshrc
   mv /tmp/zshrc ~/.zshrc
 EOT
