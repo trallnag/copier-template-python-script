@@ -8,11 +8,16 @@ SHELL ["/usr/bin/bash", "-eux", "-o", "pipefail", "-c"]
 RUN <<-EOT
   export DEBIAN_FRONTEND=noninteractive
 
+  # Install basic tools.
   sudo apt-get update
   sudo apt-get install --yes --no-install-recommends \
     build-essential \
     curl \
     gnupg2
+
+  # Add line break to included theme.
+  sed --in-place "s/\$ /'\$'\\\n''❯ /g" \
+    ~/.oh-my-zsh/custom/themes/devcontainers.zsh-theme
 EOT
 
 # Install Homebrew.
