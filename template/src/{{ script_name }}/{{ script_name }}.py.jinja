@@ -79,6 +79,7 @@ class Command(click.Command):
     help=HELP,
     epilog=EPILOG,
 )
+@click.version_option(VERSION)
 def {{ script_name }}() -> None:
     """Command."""
 

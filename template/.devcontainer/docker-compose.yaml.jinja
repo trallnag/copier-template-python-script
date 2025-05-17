@@ -3,18 +3,28 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+
     command: sleep infinity
+
     environment:
+      - GITHUB_TOKEN
+      - MISE_GITHUB_TOKEN
+      - HOMEBREW_GITHUB_API_TOKEN
+
       # Hardlinking (which is the default on Linux) not possible
       # as uv cache lives on a different drive in this configuration.
-      UV_LINK_MODE: symlink
+      - UV_LINK_MODE=symlink
+
     volumes:
       # Workspace itself.
       - ..:/workspaces/{{ project_name }}:cached
+
       # Virtual environment.
       - venv:/workspaces/{{ project_name }}/.venv
+
       # Workspace cache.
       - cache:/workspaces/{{ project_name }}/.cache
+
 volumes:
   venv: # Virtual environment.
   cache: # Workspace cache.

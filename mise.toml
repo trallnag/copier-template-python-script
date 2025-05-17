@@ -1,0 +1,4 @@
+[tools]
+
+# Renovate: datasource=github-releases packageName=copier-org/copier
+"pipx:copier" = "9.7.1"

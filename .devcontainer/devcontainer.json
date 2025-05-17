@@ -11,12 +11,11 @@
     "vscode": {
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.profiles.linux": {
-          "zsh": { "path": "/usr/bin/zsh" }
-        }
+        "terminal.integrated.profiles.linux.zsh.path": "/usr/bin/zsh"
       },
 
       "extensions": [
+        "BlueGlassBlock.better-json5",
         "EditorConfig.EditorConfig",
         "Gerrnperl.outline-map",
         "GitHub.copilot",
