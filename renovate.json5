@@ -44,9 +44,9 @@
   customManagers: [
     {
       customType: 'regex',
-      description: 'Manage tools in mise config files.',
+      description: 'Manage tools in mise config file.',
       managerFilePatterns: [
-        '**/mise.toml',
+        'mise.toml',
       ],
       matchStrings: [
         '# Renovate: datasource=(?<datasource>.+) packageName=(?<packageName>.+)\\n.+ = "(?<currentValue>.+)"\\n',
