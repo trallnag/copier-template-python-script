@@ -52,7 +52,7 @@ I'm also using the project to test out various tools and workflows.
 
 ## Contributing
 
-No point in contributing. Made for my (Tim) personal use only.
+No point in contributing. Made for my personal use only.
 
 ## Licensing
 
