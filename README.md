@@ -48,8 +48,6 @@ The environment name is "PyPI".
 The project is maintained by me, [Tim](https://github.com/trallnag), and I am
 interested in keeping it alive as I am actively using it.
 
-I'm also using the project to test out various tools and workflows.
-
 ## Contributing
 
 No point in contributing. Made for my personal use only.
@@ -58,4 +56,4 @@ No point in contributing. Made for my personal use only.
 
 This work is licensed under the
 [ISC license](https://en.wikipedia.org/wiki/ISC_license). See
-[`LICENSE`](LICENSE) for the license text.
+[`LICENSE`](./LICENSE) for the license text.
