@@ -16,8 +16,8 @@ All GitHub repositories based on this template must meet the following
 requirements.
 
 - Wikis disabled.
-- Discussions disabled.
 - Projects disabled.
+- Discussions enabled.
 - Immutable releases enabled.
 
 For pull requests the following must be enabled:
