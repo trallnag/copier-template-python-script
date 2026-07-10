@@ -15,23 +15,16 @@ Repositories based on this template:
 All GitHub repositories based on this template must meet the following
 requirements.
 
-Feature "Wikis" disabled.
-
-Feature "Discussions" enabled.
-
-Feature "Projects" disabled.
+- Wikis disabled.
+- Discussions disabled.
+- Projects disabled.
+- Immutable releases enabled.
 
 For pull requests the following must be enabled:
 
 - Always suggest updating pull request branches.
 - Automatically delete head branches.
 - Allow auto-merge.
-
-Ruleset "Master":
-
-- Target default branch.
-- Restrict deletions.
-- Block force pushes.
 
 Environment "PyPI" with tag pattern `v*.*.*`.
 
