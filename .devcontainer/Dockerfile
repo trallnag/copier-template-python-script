@@ -17,10 +17,12 @@ ARG APT_PKGS="\
 "
 
 ARG BREW_PKGS="\
+  cosign \
   gh \
   jq \
   just \
   mise \
+  ripgrep \
   uv \
   watchexec \
   zsh-completions \

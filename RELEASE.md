@@ -29,7 +29,7 @@ git log --graph --oneline --all --max-count=5
 Push it:
 
 ```sh
-git push origin master
+git push
 git push origin v$VERSION
 ```
 

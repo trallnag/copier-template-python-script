@@ -10,27 +10,27 @@
   "customizations": {
     "vscode": {
       "settings": {
+        "mise.checkForNewMiseVersion": false,
+        "mise.updateOpenTerminalsEnvAutomatically": true,
         "terminal.integrated.defaultProfile.linux": "zsh"
       },
 
       "extensions": [
         "BlueGlassBlock.better-json5",
         "EditorConfig.EditorConfig",
-        "Gerrnperl.outline-map",
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "GitHub.vscode-pull-request-github",
-        "Gruntfuggly.todo-tree",
         "Tyriar.sort-lines",
-        "VisualStudioExptTeam.vscodeintellicode",
+        "charliermarsh.ruff",
         "donjayamanne.githistory",
         "github.vscode-github-actions",
+        "hverlin.mise-vscode",
         "mhutchie.git-graph",
         "nefrob.vscode-just-syntax",
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
         "tomoki1207.selectline-statusbar",
-        "waderyan.gitblame",
         "yzhang.markdown-all-in-one"
       ]
     }
