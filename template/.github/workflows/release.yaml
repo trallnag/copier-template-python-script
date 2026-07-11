@@ -32,19 +32,30 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
+      - name: Determine release-version
+        id: determine-release-version
+        run: |
+          release_version=$(echo "${GITHUB_REF#refs/*/}" | cut -c 2-)
+          echo "release-version=$release_version" | tee -a $GITHUB_OUTPUT
+
       - name: Set up Node
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
 
-      - name: Set up dev container CLI
-        run: npm install -g @devcontainers/cli
+      - name: Set up just
+        uses: extractions/setup-just@53165ef7e734c5c07cb06b3c8e7b647c5aa16db3 # v4.0.0
 
-      - name: Get dev container CLI version
-        run: devcontainer --version
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version-file: pyproject.toml
 
-      - name: Create and run dev container
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: devcontainer up --workspace-folder=.
+      - name: Set up Astral uv
+        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
+        with:
+          enable-cache: true
+          cache-suffix: release
+          cache-dependency-glob: |
+            uv.lock
 
       - name: Check that token is set in dev container
         run: |
@@ -53,9 +64,23 @@ jobs:
             /usr/bin/env zsh --interactive --login -c \
               "printenv | grep -G -q ^GITHUB_TOKEN="
 
-      - name: Run default just recipe in dev container
-        run: |
-          devcontainer exec \
-            --workspace-folder=. \
-            /usr/bin/env zsh --interactive --login -c \
-              "just"
+      - name: Create release notes
+        run: just create-release-notes
+
+      - name: Remove prefix from script
+        run: sed --in-place 's/^_//g' pyproject.toml
+
+      - name: Build distributions
+        run: uv build --out-dir=.tmp/dist
+
+      - name: Publish distributions
+        uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # v1.14.0
+        with:
+          packages-dir: .tmp/dist
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
+        with:
+          name: ${{ steps.determine-release-name.outputs.release-name }}
+          body_path: .tmp/release-notes.md
+          draft: true
