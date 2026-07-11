@@ -1,33 +1,34 @@
-name: Dev Cont
+name: Release
 
 #
-# Creates dev container and runs the default just recipe.
+# Releases a new version of this project.
+#
+# Make sure to prepare the project for a new release (see docs for more).
 #
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - "**"
-    paths:
-      - .github/workflows/dev-cont.yaml
-      - .devcontainer/**
-  schedule:
-    # At 04:20 on Monday.
-    - cron: 20 4 * * 1
+    tags:
+      - v*.*.*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:
     shell: bash
 
 jobs:
-  dev-cont:
-    name: Dev Cont
+  release:
+    name: Release
     runs-on: ubuntu-latest
+    environment:
+      name: PyPI
+      url: https://pypi.org/project/${{ github.event.repository.name }}
     permissions:
-      actions: read
-      contents: read
-      packages: read
+      contents: write
+      id-token: write
     steps:
       - name: Check out repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -38,8 +39,11 @@ jobs:
           release_version=$(echo "${GITHUB_REF#refs/*/}" | cut -c 2-)
           echo "release-version=$release_version" | tee -a $GITHUB_OUTPUT
 
-      - name: Set up Node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      - name: Determine release-name
+        id: determine-release-name
+        run: |
+          release_name="${{ steps.determine-release-version.outputs.release-version }} / $(date +%Y-%m-%d)"
+          echo "release-name=$release_name" | tee -a $GITHUB_OUTPUT
 
       - name: Set up just
         uses: extractions/setup-just@53165ef7e734c5c07cb06b3c8e7b647c5aa16db3 # v4.0.0
@@ -57,12 +61,21 @@ jobs:
           cache-dependency-glob: |
             uv.lock
 
-      - name: Check that token is set in dev container
+      - name: Determine mdformat version
+        id: determine-mdformat-version
         run: |
-          devcontainer exec \
-            --workspace-folder=. \
-            /usr/bin/env zsh --interactive --login -c \
-              "printenv | grep -G -q ^GITHUB_TOKEN="
+          mdformat_version=$(
+            grep \
+              --extended-regexp \
+              --only-matching \
+              --regexp='"pipx:mdformat" = ".+"' \
+              mise.toml \
+              | cut -c20- | rev | cut -c2- | rev
+          )
+          echo "mdformat-version=$mdformat_version" | tee -a $GITHUB_OUTPUT
+
+      - name: Install mdformat
+        run: uv tool install mdformat@${{ steps.determine-mdformat-version.outputs.mdformat-version }}
 
       - name: Create release notes
         run: just create-release-notes
