@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
 
-FROM  mcr.microsoft.com/devcontainers/base:trixie@sha256:1a00517e89d3075f8c9dc8d9911404de0ff8991a4d71c62068573e9b016a89da
+FROM  mcr.microsoft.com/devcontainers/base:trixie@sha256:41ff7ce12ec45f2704f27a6e091831186ad922ec8112e6339425bfefdf5a70f9
 
 USER vscode
 
